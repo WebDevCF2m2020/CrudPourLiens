@@ -5,10 +5,10 @@
     </button>
     <div class="collapse navbar-collapse" id="sousmenu">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item <?php if(!isset($_GET['pg'])) echo "active" ?>">
                 <a class="nav-link" href="./">Accueil</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php if(isset($_GET['pg'])&&$_GET['pg']=="galerie") echo "active" ?>">
                 <a class="nav-link" href="?pg=galerie">Galerie</a>
             </li>
             <li class="nav-item dropdown">
@@ -20,10 +20,10 @@
                     <a class="dropdown-item" href="?pg=tuto2">Tutoriel 2</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item  <?php if(isset($_GET['pg'])&&$_GET['pg']=="liens") echo "active" ?>">
                 <a class="nav-link" href="?pg=liens">Liens</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item  <?php if(isset($_GET['pg'])&&$_GET['pg']=="contact") echo "active" ?>">
                 <a class="nav-link" href="?pg=contact">Contact</a>
             </li>
         </ul>
