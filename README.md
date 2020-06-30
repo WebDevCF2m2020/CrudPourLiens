@@ -19,4 +19,6 @@ Connexion à une administration pour créer un CRUD sur les liens du projet "Sit
 Importez dans PHPMyAdmin ou exécutez le code se trouvant dand
 
     datas/import-crudpourliens.sql
-    
+
+### Création d'un Virtualhost
+Créez un virtualhost pour accéder à la racine de ce dossier (vers index.php donc)    
