@@ -25,9 +25,19 @@ include "menu_deconnect.php";
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed itaque neque doloremque animi est praesentium. Autem dignissimos ipsam itaque quibusdam placeat iste accusamus quasi modi reiciendis. Cumque neque aut, excepturi.</p>
 </header>
 
-<!--
-ici notre contenu
--->
+<main class="container">
+    <form method="post" action="">
+        <div class="form-group form-row">
+            <label for="votreLogin" class="col-3">Votre login</label>
+            <input type="text" class="form-control col-9" id="votreLogin" aria-describedby="loginHelp" placeholder="Entrez votre login">
+        </div>
+        <div class="form-group form-row">
+            <label for="votrePWD" class="col-3">Votre mot de passe</label>
+            <input type="password" class="form-control col-9" id="votrePWD" placeholder="Entrez votre mot de passe">
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</main>
 
 <?php
 require_once "javascript.php";

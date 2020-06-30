@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light">
-    <a class="navbar-brand" href="#">Portfolio</a>
+    <a class="navbar-brand" href="./">Portfolio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sousmenu" aria-controls="sousmenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

@@ -34,7 +34,6 @@ include "menu_deconnect.php";
         <div class="form-group form-row">
             <label for="votreNom" class="col-3">Votre nom</label>
             <input type="text" class="form-control col-9" id="votreNom" placeholder="Entrez votre nom" maxlength="45" size="45" >
-            <small class="form-text offset-3 d-none" id="msgErreur">Les données introduites dépassent la limite (max 45)</small>
         </div>
         <div class="form-group form-row">
             <label for="votreSociete" class="col-3">Votre société</label>
