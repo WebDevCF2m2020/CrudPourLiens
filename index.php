@@ -31,6 +31,9 @@ if(isset($_GET['pg'])){
         case "contact":
             require_once "pages/formulaire.php";
             break;
+        case "connect":
+            require_once "pages/formulaire_admin.php";
+            break;
         default:
             require_once "pages/accueil.php";
     }
