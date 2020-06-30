@@ -3,6 +3,12 @@
  * Front Controller
  */
 
+// dependencies
+
+require_once "config.php";
+
+// routing
+
 if(isset($_GET['pg'])){
     switch ($_GET['pg']){
         case "galerie":
