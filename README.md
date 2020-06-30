@@ -14,3 +14,9 @@ Connexion à une administration pour créer un CRUD sur les liens du projet "Sit
 10. Liste des contacts
 11. CRUD liens
 12. CRUD galerie (avec upload)
+
+### Importation de la DB
+Importez dans PHPMyAdmin ou exécutez le code se trouvant dand
+
+    datas/import-crudpourliens.sql
+    

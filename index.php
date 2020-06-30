@@ -23,4 +23,6 @@ if(isset($_GET['pg'])){
         default:
             require_once "pages/accueil.php";
     }
+}else{
+    require_once "pages/accueil.php";
 }
