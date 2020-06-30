@@ -16,8 +16,8 @@
                     Tutoriels
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="?pg=tuto1">Tutoriel 1</a>
-                    <a class="dropdown-item" href="?pg=tuto2">Tutoriel 2</a>
+                    <a class="dropdown-item  <?php if(isset($_GET['pg'])&&$_GET['pg']=="tuto1") echo "active" ?>" href="?pg=tuto1">Tutoriel 1</a>
+                    <a class="dropdown-item <?php if(isset($_GET['pg'])&&$_GET['pg']=="tuto2") echo "active" ?>" href="?pg=tuto2">Tutoriel 2</a>
                 </div>
             </li>
             <li class="nav-item  <?php if(isset($_GET['pg'])&&$_GET['pg']=="liens") echo "active" ?>">
