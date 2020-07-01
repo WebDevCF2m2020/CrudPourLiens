@@ -35,7 +35,7 @@ if(isset($_GET['pg'])){
             require_once "pages/formulaire_admin.php";
             break;
         default:
-            require_once "pages/accueil.php";
+            require_once "pages/error404.php";
     }
 }else{
     require_once "pages/accueil.php";
