@@ -22,6 +22,8 @@ if(isset($_POST['thelogin'],$_POST['thepwd'])){
             $_SESSION['notresession'] = session_id();
             // on supprime le mot de passe par soucis de sécurité avec unset
             unset($_SESSION['thepwd']);
+            // redirection vers notre contrôleur frontal
+            header("Location: ./");
         }else{
             $message = "Login ou mot de passe incorrect(s)";
         }
@@ -77,7 +79,7 @@ include "menu_deconnect.php";
 
 <?php
 // debug
-var_dump($_POST,$_SESSION);
+// var_dump($_POST,$_SESSION);
 require_once "javascript.php";
 ?>
 
