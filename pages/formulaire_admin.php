@@ -13,6 +13,18 @@ if(isset($_POST['thelogin'],$_POST['thepwd'])){
         // $sql = mysqli_real_escape_string($db,$sql);
         // exécution de la requête
         $recup_user = mysqli_query($db,$sql) or die(mysqli_error($db));
+        // 1 ligne si on arrive à se connecter, 0 sinon
+        if(mysqli_num_rows($recup_user)==1){
+            // création de la connexion à notre session
+            // on remplit la session avec le tableau associatif de notre requête $recup_user
+            $_SESSION = mysqli_fetch_assoc($recup_user);
+            // on garde notre identifiant de session (PHPSESSID)
+            $_SESSION['notresession'] = session_id();
+            // on supprime le mot de passe par soucis de sécurité avec unset
+            unset($_SESSION['thepwd']);
+        }else{
+            $message = "Login ou mot de passe incorrect(s)";
+        }
     }else{
         $message = "Login ou mot de passe au format(s) invalide(s)";
     }
@@ -65,7 +77,7 @@ include "menu_deconnect.php";
 
 <?php
 // debug
-var_dump($_POST);
+var_dump($_POST,$_SESSION);
 require_once "javascript.php";
 ?>
 
