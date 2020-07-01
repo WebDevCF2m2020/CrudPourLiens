@@ -30,13 +30,9 @@ ici notre contenu
 -->
 
 <?php
-include "javascript.php";
 
 include "javascript.php";
 
-include "javascript.php";
-
-include "javascript.php";
 ?>
 
 </body>
