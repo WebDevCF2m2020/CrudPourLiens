@@ -29,17 +29,19 @@ include "menu_deconnect.php";
     <form method="post" action="">
         <div class="form-group form-row">
             <label for="votreLogin" class="col-3">Votre login</label>
-            <input type="text" class="form-control col-9" id="votreLogin" aria-describedby="loginHelp" placeholder="Entrez votre login">
+            <input name="thelogin" type="text" class="form-control col-9" id="votreLogin" aria-describedby="loginHelp" placeholder="Entrez votre login" required>
         </div>
         <div class="form-group form-row">
             <label for="votrePWD" class="col-3">Votre mot de passe</label>
-            <input type="password" class="form-control col-9" id="votrePWD" placeholder="Entrez votre mot de passe">
+            <input name="thepwd" type="password" class="form-control col-9" id="votrePWD" placeholder="Entrez votre mot de passe" required>
 
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 </main>
 
 <?php
+// debug
+var_dump($_POST);
 require_once "javascript.php";
 ?>
 
