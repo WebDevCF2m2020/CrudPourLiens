@@ -7,7 +7,12 @@ if(isset($_POST['thelogin'],$_POST['thepwd'])){
 
     // vérification si au moins une des 2 variables locales ne sont pas vides
     if(!empty($thelogin)&&!empty($thepwd)){
-
+        // sql
+        $sql = "SELECT * FROM user WHERE thelogin='$thelogin' AND thepwd='$thepwd';";
+        // suppression (mode parano) du risque d'injection SQL, ne marche que avec mysqli, bug si on a déjà protégé nos variables, devient inutile lors de requêtes préparées
+        // $sql = mysqli_real_escape_string($db,$sql);
+        // exécution de la requête
+        $recup_user = mysqli_query($db,$sql) or die(mysqli_error($db));
     }else{
         $message = "Login ou mot de passe au format(s) invalide(s)";
     }
