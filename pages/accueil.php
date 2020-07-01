@@ -30,7 +30,13 @@ ici notre contenu
 -->
 
 <?php
-require_once "javascript.php";
+include "javascript.php";
+
+include "javascript.php";
+
+include "javascript.php";
+
+include "javascript.php";
 ?>
 
 </body>
