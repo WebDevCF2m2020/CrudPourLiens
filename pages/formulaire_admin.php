@@ -1,5 +1,18 @@
 <?php
+// formulaire envoyé
+if(isset($_POST['thelogin'],$_POST['thepwd'])){
+    // variables locales protégées
+    $thelogin = htmlspecialchars(strip_tags(trim($_POST['thelogin'])),ENT_QUOTES);
+    $thepwd = htmlspecialchars(strip_tags(trim($_POST['thepwd'])),ENT_QUOTES);
 
+    // vérification si au moins une des 2 variables locales ne sont pas vides
+    if(!empty($thelogin)&&!empty($thepwd)){
+
+    }else{
+        $message = "Login ou mot de passe au format(s) invalide(s)";
+    }
+
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -27,6 +40,10 @@ include "menu_deconnect.php";
 
 <main class="container">
     <form method="post" action="">
+        <?php
+
+        if(isset($message)) echo "<h3>$message</h3>";
+        ?>
         <div class="form-group form-row">
             <label for="votreLogin" class="col-3">Votre login</label>
             <input name="thelogin" type="text" class="form-control col-9" id="votreLogin" aria-describedby="loginHelp" placeholder="Entrez votre login" required>
@@ -35,7 +52,9 @@ include "menu_deconnect.php";
             <label for="votrePWD" class="col-3">Votre mot de passe</label>
             <input name="thepwd" type="password" class="form-control col-9" id="votrePWD" placeholder="Entrez votre mot de passe" required>
 
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+
+        </div>
     </form>
 </main>
 
