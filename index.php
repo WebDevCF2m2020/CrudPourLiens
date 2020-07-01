@@ -3,6 +3,9 @@
  * Front Controller
  */
 
+// session
+session_start();
+
 // dependencies
 
 require_once "config.php";
