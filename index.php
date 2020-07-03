@@ -22,7 +22,7 @@ if(isset($_SESSION['notresession'])&&$_SESSION['notresession']===session_id()) {
     // routing admin
 
     if(isset($_GET['admin'])){
-
+        // créer le switch => admin=deco : redirection vers disconnect, admin=liensadmin appel d'une page non existante, sinon appel de accueil_admin.php
     }else{
         require_once "pages/admin/accueil_admin.php";
     }
