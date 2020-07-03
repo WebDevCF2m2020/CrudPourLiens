@@ -20,7 +20,12 @@ mysqli_set_charset($db, "utf8");
 if(isset($_SESSION['notresession'])&&$_SESSION['notresession']===session_id()) {
 
     // routing admin
-    echo "Tu es connecté";
+
+    if(isset($_GET['admin'])){
+
+    }else{
+        require_once "pages/admin/accueil_admin.php";
+    }
 
 }else {
 
