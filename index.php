@@ -20,7 +20,24 @@ mysqli_set_charset($db, "utf8");
 if(isset($_SESSION['notresession'])&&$_SESSION['notresession']===session_id()) {
 
     // routing admin
-    echo "Tu es connecté";
+
+    if(isset($_GET['admin'])){
+        // créer le switch => admin=deco : redirection vers disconnect, admin=liensadmin appel d'une page non existante, sinon appel de accueil_admin.php
+        switch ($_GET['admin']){
+            case "deco":
+                // les 2 lignes suivantes sont valables (première proposition peut afficher l'erreur "header déjà envoyé ou double session_start")
+                // require_once "pages/admin/disconnect.php";
+                header("Location: pages/admin/disconnect.php");
+                break;
+            case "liensadmin":
+                require_once "pages/admin/liens_admin.php";
+                break;
+            default:
+                require_once "pages/admin/error404.php";
+        }
+    }else{
+        require_once "pages/admin/accueil_admin.php";
+    }
 
 }else {
 
