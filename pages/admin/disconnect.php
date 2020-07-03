@@ -22,5 +22,5 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // redirection vers l'accueil public
-header("Location: ../../");
+header("Location: ./");
 
