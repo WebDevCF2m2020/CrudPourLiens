@@ -1,7 +1,7 @@
 <?php
 // Déconnexion avec suppression du cookie de session
 
-// on relance la session car on ne passe pas par le contrôleur frontal
+// on relance la session car on ne passe pas par le contrôleur frontal sauf en cas de require (parfois une erreur suivant la configuration du server), sinon le laisser en cas de redirection header("Location: .....")
 session_start();
 
 // Détruit toutes les variables de session
@@ -22,5 +22,5 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // redirection vers l'accueil public
-header("Location: ./");
+header("Location: ../../");
 
