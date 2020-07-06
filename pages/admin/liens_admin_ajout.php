@@ -7,8 +7,27 @@ if(!isset($_SESSION['notresession'])||$_SESSION['notresession']!==session_id()) 
 }
 // var_dump($_POST);
 
+// si le formulaire est envoyé
 if(isset($_POST['thetitle'],$_POST['theurl'],$_POST['thetext'])){
+    // si erreur vaudra "" => empty
+    $thetitle = htmlspecialchars(strip_tags(trim($_POST['thetitle'])),ENT_QUOTES);
+    // si erreur vaudra false => !$theurl => $theurl!=true => $theurl==false => $theurl===false
+    $theurl = filter_var($_POST['theurl'],FILTER_VALIDATE_URL);
+    // si erreur vaudra "" => empty
+    $thetext = htmlspecialchars(
+                strip_tags(
+                    trim($_POST['thetext']),'<p><a><img><br><strong><b><i><em>'),ENT_QUOTES);
 
+    // si on a une erreur de type
+    if(empty($thetitle)||empty($thetext)||$theurl===false){
+        $message = "Erreur de type de données, veuillez recommencer";
+    }else {
+        // sql
+        $sql = "INSERT INTO liens (thetitle, theurl, thetext) VALUES ('$thetitle', '$theurl', '$thetext');
+";
+        $insert = mysqli_query($db,$sql) or die(mysqli_error($db));
+        $message = "Merci pour l'insertion de votre lien";
+    }
 }
 
 
@@ -42,7 +61,7 @@ include "menu_connect.php";
     <?php
     // message d'erreur
     if(isset($message)) {
-        echo "<h3>$message</h3>";
+        echo "<hr><h3>$message</h3><hr>";
     }
     ?>
     <form method="post" action="">
