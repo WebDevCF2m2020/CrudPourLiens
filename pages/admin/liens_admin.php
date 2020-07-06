@@ -7,6 +7,19 @@ if(!isset($_SESSION['notresession'])||$_SESSION['notresession']!==session_id()) 
 }
 
 // requête permettant de récupérer les liens dans la base de donnée
+$sql="SELECT * FROM liens ORDER BY thetitle ASC;";
+$recup_liens = mysqli_query($db,$sql) or die(mysqli_error($db));
+
+// on compte le nombre de lignes de résultat
+$count = mysqli_num_rows($recup_liens);
+
+// si on a pas de résultat
+// if(empty($count))
+// if($count===0)
+// mode court, si $count vaut 1 => true on l'inverse = false. si $count vaut 0 => false on l'inverse = true
+if(!$count){
+    $message = "Pas encore de liens pour le moment";
+}
 
 ?>
 <!doctype html>
@@ -33,9 +46,9 @@ include "menu_connect.php";
     <p>Bienvenue <?=$_SESSION['therealname']?></p>
 </header>
 
-<!--
-ici notre contenu
--->
+<main class="container">
+    <?php if(isset($message)) echo "<h3>$message</h3>" ?>
+</main>
 
 <?php
 // chemin depuis index.php (CF frontal)
