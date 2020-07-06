@@ -58,8 +58,11 @@ include "menu_connect.php";
     }else{
         // si $count est plus grand que 1, rajoutez s à "message"
         ?>
-    <h3>Vous avez <?=$count?> message</h3>
+    <h3>Vous avez <?=$count?> message<?php if($count>1) echo "s"?></h3>
     <?php
+        foreach ($tous_les_liens as $item){
+            echo $item['thetitle'];
+        }
     }
     ?>
 </main>
