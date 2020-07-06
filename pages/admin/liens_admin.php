@@ -47,6 +47,7 @@ include "menu_connect.php";
 </header>
 
 <main class="container">
+    <h3><a href="?admin=add_liens" title="ajouter un lien"><img src="img/add.png" alt="ajouter un lien"/></a></h3>
     <?php if(isset($message)) echo "<h3>$message</h3>" ?>
 </main>
 
