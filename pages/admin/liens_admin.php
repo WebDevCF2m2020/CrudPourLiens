@@ -19,6 +19,9 @@ $count = mysqli_num_rows($recup_liens);
 // mode court, si $count vaut 1 => true on l'inverse = false. si $count vaut 0 => false on l'inverse = true
 if(!$count){
     $message = "Pas encore de liens pour le moment";
+}else{
+    // utilisation de mysqli_fetch_all qui va formater tous les résultats dans un tableau indexé, le paramètre non obligatoire MYSQLI_ASSOC fait que chaque ligne de ce tableau sera un tableau associatif
+    $tous_les_liens = mysqli_fetch_all($recup_liens,MYSQLI_ASSOC);
 }
 
 ?>
@@ -48,7 +51,17 @@ include "menu_connect.php";
 
 <main class="container">
     <h3><a href="?admin=add_liens" title="ajouter un lien"><img src="img/add.png" alt="ajouter un lien"/></a></h3>
-    <?php if(isset($message)) echo "<h3>$message</h3>" ?>
+    <?php
+    // pas encore de liens
+    if(isset($message)) {
+        echo "<h3>$message</h3>";
+    }else{
+        // si $count est plus grand que 1, rajoutez s à "message"
+        ?>
+    <h3>Vous avez <?=$count?> message</h3>
+    <?php
+    }
+    ?>
 </main>
 
 <?php
