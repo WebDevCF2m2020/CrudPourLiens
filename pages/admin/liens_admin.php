@@ -61,7 +61,17 @@ include "menu_connect.php";
     <h3>Vous avez <?=$count?> message<?php if($count>1) echo "s"?></h3>
     <?php
         foreach ($tous_les_liens as $item){
-            echo $item['thetitle'];
+            ?>
+            <hr>
+            <h4><?=$item['thetitle']?> <a href="?admin=update_liens&id=<?=$item['idliens']?>" title="modifier ce lien"><img src="img/update.png" alt="modifier ce lien" /></a> <a href="?admin=delete_liens&id=<?=$item['idliens']?>" title="supprimer ce lien"><img src="img/delete.png" alt="supprimer ce lien" /></a> </h4>
+            <p><a href="<?=$item['theurl']?>" title="<?=$item['thetitle']?>" target="_blank"><?=$item['theurl']?></a> </p>
+            <p><strong>Description : </strong>
+                <?php
+                // comme on a encodé dans la bdd avec htmlentities et ENT_QUOTES, on utilise pour l'html autorisé (par le strip_tags) html_entity_decode avec le même flag ENT_QUOTES
+                echo html_entity_decode($item['thetext'],ENT_QUOTES);
+                ?>
+            </p>
+    <?php
         }
     }
     ?>
