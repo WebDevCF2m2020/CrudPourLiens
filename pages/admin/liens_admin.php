@@ -22,6 +22,7 @@ if(!$count){
 }else{
     // utilisation de mysqli_fetch_all qui va formater tous les résultats dans un tableau indexé, le paramètre non obligatoire MYSQLI_ASSOC fait que chaque ligne de ce tableau sera un tableau associatif
     $tous_les_liens = mysqli_fetch_all($recup_liens,MYSQLI_ASSOC);
+    // var_dump($tous_les_liens);
 }
 
 ?>

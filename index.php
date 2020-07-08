@@ -3,7 +3,7 @@
  * Front Controller
  */
 
-// session
+// session créée ou continuée si existante
 session_start();
 
 // dependencies
