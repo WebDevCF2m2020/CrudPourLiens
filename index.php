@@ -35,6 +35,12 @@ if(isset($_SESSION['notresession'])&&$_SESSION['notresession']===session_id()) {
             case "add_liens":
                 require_once "pages/admin/liens_admin_ajout.php";
                 break;
+            case "delete_liens":
+                require_once "pages/admin/liens_admin_delete.php";
+                break;
+            case "update_liens":
+                require_once "pages/admin/liens_admin_modif.php";
+                break;
             default:
                 require_once "pages/admin/error404.php";
         }
