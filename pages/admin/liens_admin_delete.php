@@ -10,6 +10,16 @@ if(!isset($_SESSION['notresession'])||$_SESSION['notresession']!==session_id()) 
 if(isset($_GET['id'])&&ctype_digit($_GET['id'])){
     // conversion en entier
     $id = (int) $_GET['id'];
+
+    // on confirme la suppression en rajoutant la variable get ok
+    if(isset($_GET['ok'])){
+        $sql = "DELETE FROM liens WHERE idliens=$id";
+        // suppression
+        mysqli_query($db,$sql)or die(mysqli_error($db));
+        // redirection
+        header("Location: ?admin=liensadmin");
+    }
+
     // préparation de la requête
     $sql = "SELECT thetitle, theurl FROM liens WHERE idliens=$id";
     // exécution de la requête
@@ -38,8 +48,6 @@ if(isset($_GET['id'])&&ctype_digit($_GET['id'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Portfolio | Suppression du lien - <?php echo (isset($erreur))? $erreur: $liens['thetitle']  ?> </title>
-    <style>
-    </style>
 
 </head>
 <body>
@@ -52,7 +60,22 @@ include "menu_connect.php";
 </header>
 
 <main class="container">
-
+    <?php
+    if(!isset($erreur)){
+    ?>
+<h3>Voulez vous vraiment supprimer :</h3><hr>
+<h4><?=$liens['thetitle']?></h4>
+<h5><?=$liens['theurl']?></h5>
+        <hr>
+        <a class="btn btn-danger" href="?admin=delete_liens&id=<?=$id?>&ok" role="button">Supprime définitivement !</a>
+        <a class="btn btn-secondary" href="?admin=liensadmin" role="button">Ne pas supprimer</a>
+    <?php
+    }else{
+    ?>
+        <h3>Retournez vers l'<a href="./">accueil</a></h3>
+    <?php
+    }
+    ?>
 </main>
 
 <?php

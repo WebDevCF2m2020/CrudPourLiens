@@ -26,7 +26,8 @@ if(isset($_POST['thetitle'],$_POST['theurl'],$_POST['thetext'])){
         $sql = "INSERT INTO liens (thetitle, theurl, thetext) VALUES ('$thetitle', '$theurl', '$thetext');
 ";
         $insert = mysqli_query($db,$sql) or die(mysqli_error($db));
-        $message = "Merci pour l'insertion de votre lien";
+        // redirection
+        header("Location: ?admin=liensadmin");
     }
 }
 
@@ -43,8 +44,6 @@ if(isset($_POST['thetitle'],$_POST['theurl'],$_POST['thetext'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Portfolio | Ajouter un lien</title>
-    <style>
-    </style>
 
 </head>
 <body>

@@ -37,8 +37,6 @@ if(!$count){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Portfolio | Administration des liens</title>
-    <style>
-    </style>
 
 </head>
 <body>
@@ -52,6 +50,9 @@ include "menu_connect.php";
 
 <main class="container">
     <h3><a href="?admin=add_liens" title="ajouter un lien"><img src="img/add.png" alt="ajouter un lien"/></a></h3>
+    <pre><code>Rajoutez ici en vert ( voir https://getbootstrap.com/docs/4.5/components/alerts/ ),
+en cas d'insertion => Merci d'avoir ajouté un lien
+en cas de suppression => Lien supprimé</code></pre>
     <?php
     // pas encore de liens
     if(isset($message)) {
