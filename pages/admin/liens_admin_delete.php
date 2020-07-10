@@ -16,8 +16,8 @@ if(isset($_GET['id'])&&ctype_digit($_GET['id'])){
         $sql = "DELETE FROM liens WHERE idliens=$id";
         // suppression
         mysqli_query($db,$sql)or die(mysqli_error($db));
-        // redirection
-        header("Location: ?admin=liensadmin");
+        // redirection - ajout d'une variable GET['message'] pour la confirmation, ici de la suppression (&message=delete)
+        header("Location: ?admin=liensadmin&message=delete");
     }
 
     // préparation de la requête
