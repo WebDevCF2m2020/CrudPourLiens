@@ -67,6 +67,12 @@ include "menu_connect.php";
                 </div>
                 <?php
                 break;
+            case "update":
+    ?>
+    <div class="alert alert-success" role="alert">
+        Lien modifié!
+    </div>
+    <?php
 
         }
     }
