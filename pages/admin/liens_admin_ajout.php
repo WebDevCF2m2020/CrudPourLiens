@@ -27,7 +27,7 @@ if(isset($_POST['thetitle'],$_POST['theurl'],$_POST['thetext'])){
 ";
         $insert = mysqli_query($db,$sql) or die(mysqli_error($db));
         // redirection
-        header("Location: ?admin=liensadmin");
+        header("Location: ?admin=liensadmin&message=insert");
     }
 }
 

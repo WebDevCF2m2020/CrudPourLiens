@@ -60,6 +60,13 @@ include "menu_connect.php";
                 </div>
                 <?php
                 break;
+            case "insert":
+                ?>
+                <div class="alert alert-success" role="alert">
+                    Lien inséré!
+                </div>
+                <?php
+                break;
 
         }
     }
