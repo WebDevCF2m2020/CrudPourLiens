@@ -49,13 +49,24 @@ include "menu_connect.php";
 </header>
 
 <main class="container">
-    <h3><a href="?admin=add_liens" title="ajouter un lien"><img src="img/add.png" alt="ajouter un lien"/></a></h3>
-    <pre>
-        <code>Rajoutez ici en vert ( voir https://getbootstrap.com/docs/4.5/components/alerts/ ),
-en cas d'insertion => Merci d'avoir ajouté un lien
-en cas de suppression => Lien supprimé</code>
-    </pre>
     <?php
+    // en cas de redirection depuis 1 des 3 pages du CrUD
+    if(isset($_GET['message'])){
+        switch ($_GET['message']){
+            case "delete":
+                ?>
+                <div class="alert alert-success" role="alert">
+                    Lien effacé!
+                </div>
+                <?php
+                break;
+
+        }
+    }
+    ?>
+    <h3><a href="?admin=add_liens" title="ajouter un lien"><img src="img/add.png" alt="ajouter un lien"/></a></h3>
+    <?php
+
     // pas encore de liens
     if(isset($message)) {
         echo "<h3>$message</h3>";
